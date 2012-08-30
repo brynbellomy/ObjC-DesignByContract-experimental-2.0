@@ -29,6 +29,7 @@
 		C508B6E515EDF5440079DDB7 /* YAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YAppDelegate.h; sourceTree = "<group>"; };
 		C508B6E615EDF5440079DDB7 /* YAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YAppDelegate.m; sourceTree = "<group>"; };
 		C508B6E915EDF5440079DDB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C508B6FD15EE80840079DDB7 /* Contracts2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contracts2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +47,7 @@
 		C508B6C415EDF5440079DDB7 = {
 			isa = PBXGroup;
 			children = (
+				C508B6FD15EE80840079DDB7 /* Contracts2.h */,
 				C508B6D915EDF5440079DDB7 /* langtest */,
 				C508B6D215EDF5440079DDB7 /* Frameworks */,
 				C508B6D015EDF5440079DDB7 /* Products */,
