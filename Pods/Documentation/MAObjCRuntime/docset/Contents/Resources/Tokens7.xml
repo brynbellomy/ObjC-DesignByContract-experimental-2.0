@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSObject(RTMethodSendingAdditions).html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSObject(RTMethodSendingAdditions)</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(RTMethodSendingAdditions)/rt_sendMethod:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (id)rt_sendMethod:(RTMethod *)method, ...</Declaration>
+			
+			
+			<Anchor>//api/name/rt_sendMethod:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(RTMethodSendingAdditions)/rt_returnValue:sendMethod:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (void)rt_returnValue:(void *)retPtr sendMethod:(RTMethod *)method, ...</Declaration>
+			
+			
+			<Anchor>//api/name/rt_returnValue:sendMethod:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(RTMethodSendingAdditions)/rt_sendSelector:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (id)rt_sendSelector:(SEL)sel, ...</Declaration>
+			
+			
+			<Anchor>//api/name/rt_sendSelector:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(RTMethodSendingAdditions)/rt_returnValue:sendSelector:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (void)rt_returnValue:(void *)retPtr sendSelector:(SEL)sel, ...</Declaration>
+			
+			
+			<Anchor>//api/name/rt_returnValue:sendSelector:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

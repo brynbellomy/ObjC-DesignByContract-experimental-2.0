@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSObject(MARuntime).html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSObject(MARuntime)</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_subclasses</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (NSArray *)rt_subclasses</Declaration>
+			
+			
+			<Anchor>//api/name/rt_subclasses</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_createUnregisteredSubclassNamed:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (RTUnregisteredClass *)rt_createUnregisteredSubclassNamed:(NSString *)name</Declaration>
+			
+			
+			<Anchor>//api/name/rt_createUnregisteredSubclassNamed:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_createSubclassNamed:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (Class)rt_createSubclassNamed:(NSString *)name</Declaration>
+			
+			
+			<Anchor>//api/name/rt_createSubclassNamed:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_destroyClass</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (void)rt_destroyClass</Declaration>
+			
+			
+			<Anchor>//api/name/rt_destroyClass</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_isMetaClass</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)rt_isMetaClass</Declaration>
+			
+			
+			<Anchor>//api/name/rt_isMetaClass</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_setSuperclass:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (Class)rt_setSuperclass:(Class)newSuperclass</Declaration>
+			
+			
+			<Anchor>//api/name/rt_setSuperclass:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_instanceSize</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (size_t)rt_instanceSize</Declaration>
+			
+			
+			<Anchor>//api/name/rt_instanceSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_protocols</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (NSArray *)rt_protocols</Declaration>
+			
+			
+			<Anchor>//api/name/rt_protocols</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_methods</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (NSArray *)rt_methods</Declaration>
+			
+			
+			<Anchor>//api/name/rt_methods</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_methodForSelector:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (RTMethod *)rt_methodForSelector:(SEL)sel</Declaration>
+			
+			
+			<Anchor>//api/name/rt_methodForSelector:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_addMethod:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (void)rt_addMethod:(RTMethod *)method</Declaration>
+			
+			
+			<Anchor>//api/name/rt_addMethod:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_ivars</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (NSArray *)rt_ivars</Declaration>
+			
+			
+			<Anchor>//api/name/rt_ivars</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_ivarForName:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (RTIvar *)rt_ivarForName:(NSString *)name</Declaration>
+			
+			
+			<Anchor>//api/name/rt_ivarForName:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_properties</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (NSArray *)rt_properties</Declaration>
+			
+			
+			<Anchor>//api/name/rt_properties</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_propertyForName:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (RTProperty *)rt_propertyForName:(NSString *)name</Declaration>
+			
+			
+			<Anchor>//api/name/rt_propertyForName:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_addProperty:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>+ (BOOL)rt_addProperty:(RTProperty *)property</Declaration>
+			
+			
+			<Anchor>//api/name/rt_addProperty:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_class</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>- (Class)rt_class</Declaration>
+			
+			
+			<Anchor>//api/name/rt_class</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSObject(MARuntime)/rt_setClass:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>MARTNSObject.h</DeclaredIn>			
+			
+			<Declaration>- (Class)rt_setClass:(Class)newClass</Declaration>
+			
+			
+			<Anchor>//api/name/rt_setClass:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

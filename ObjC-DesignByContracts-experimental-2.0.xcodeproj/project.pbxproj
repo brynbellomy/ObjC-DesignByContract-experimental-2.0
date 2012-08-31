@@ -1,0 +1,298 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B170E6EA3A442C791665EF1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E11D72648DD1417F913A19EF /* libPods.a */; };
+		C5581C5815EF8CE60024456F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5581C5715EF8CE60024456F /* Foundation.framework */; };
+		C5581C5B15EF8CE60024456F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5581C5A15EF8CE60024456F /* main.m */; };
+		C5581C6315EF8D300024456F /* MyClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C508B6E615EDF5440079DDB7 /* MyClass.m */; };
+		C5A986A715EF8EA700997274 /* Contracts2.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A986A515EF8EA700997274 /* Contracts2.m */; };
+		C5A986B615F0185A00997274 /* NSInvocation+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A986B515F0185A00997274 /* NSInvocation+EXT.m */; };
+		C5A986BA15F022C500997274 /* EXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A986B915F022C500997274 /* EXTRuntimeExtensions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		948126D997E8404A80194CAE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		C508B6D315EDF5440079DDB7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C508B6D615EDF5440079DDB7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C508B6D715EDF5440079DDB7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C508B6D815EDF5440079DDB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C508B6E515EDF5440079DDB7 /* MyClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MyClass.h; path = langtest/MyClass.h; sourceTree = "<group>"; };
+		C508B6E615EDF5440079DDB7 /* MyClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MyClass.m; path = langtest/MyClass.m; sourceTree = "<group>"; };
+		C508B6FD15EE80840079DDB7 /* Contracts2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contracts2.h; sourceTree = "<group>"; };
+		C5581C3615EF69830024456F /* Contracts2-Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Contracts2-Helpers.h"; path = "langtest/Contracts2-Helpers.h"; sourceTree = "<group>"; };
+		C5581C5515EF8CE60024456F /* asdf2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = asdf2; path = Contracts2; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5581C5715EF8CE60024456F /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C5581C5A15EF8CE60024456F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C5581C5D15EF8CE60024456F /* asdf2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "asdf2-Prefix.pch"; sourceTree = "<group>"; };
+		C5A986A515EF8EA700997274 /* Contracts2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contracts2.m; sourceTree = "<group>"; };
+		C5A986B115EFAC1300997274 /* YContractsProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YContractsProxy.h; sourceTree = "<group>"; };
+		C5A986B215EFAC1300997274 /* YContractsProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YContractsProxy.m; sourceTree = "<group>"; };
+		C5A986B515F0185A00997274 /* NSInvocation+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+EXT.m"; sourceTree = "<group>"; };
+		C5A986B715F0187300997274 /* NSInvocation+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+EXT.h"; sourceTree = "<group>"; };
+		C5A986B815F022B800997274 /* EXTRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTRuntimeExtensions.h; sourceTree = "<group>"; };
+		C5A986B915F022C500997274 /* EXTRuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTRuntimeExtensions.m; sourceTree = "<group>"; };
+		E11D72648DD1417F913A19EF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C5581C5215EF8CE60024456F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5581C5815EF8CE60024456F /* Foundation.framework in Frameworks */,
+				6B170E6EA3A442C791665EF1 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C508B6C415EDF5440079DDB7 = {
+			isa = PBXGroup;
+			children = (
+				C5A986B515F0185A00997274 /* NSInvocation+EXT.m */,
+				C5A986B715F0187300997274 /* NSInvocation+EXT.h */,
+				C5A986B815F022B800997274 /* EXTRuntimeExtensions.h */,
+				C5A986B915F022C500997274 /* EXTRuntimeExtensions.m */,
+				C508B6FD15EE80840079DDB7 /* Contracts2.h */,
+				C5A986A515EF8EA700997274 /* Contracts2.m */,
+				C5581C3615EF69830024456F /* Contracts2-Helpers.h */,
+				C508B6E515EDF5440079DDB7 /* MyClass.h */,
+				C508B6E615EDF5440079DDB7 /* MyClass.m */,
+				C5581C5915EF8CE60024456F /* asdf2 */,
+				C508B6D215EDF5440079DDB7 /* Frameworks */,
+				C508B6D015EDF5440079DDB7 /* Products */,
+				948126D997E8404A80194CAE /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		C508B6D015EDF5440079DDB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C5581C5515EF8CE60024456F /* asdf2 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C508B6D215EDF5440079DDB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C508B6D315EDF5440079DDB7 /* Cocoa.framework */,
+				C5581C5715EF8CE60024456F /* Foundation.framework */,
+				C508B6D515EDF5440079DDB7 /* Other Frameworks */,
+				E11D72648DD1417F913A19EF /* libPods.a */,
+				C5A986B115EFAC1300997274 /* YContractsProxy.h */,
+				C5A986B215EFAC1300997274 /* YContractsProxy.m */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C508B6D515EDF5440079DDB7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C508B6D615EDF5440079DDB7 /* AppKit.framework */,
+				C508B6D715EDF5440079DDB7 /* CoreData.framework */,
+				C508B6D815EDF5440079DDB7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C5581C5915EF8CE60024456F /* asdf2 */ = {
+			isa = PBXGroup;
+			children = (
+				C5581C5A15EF8CE60024456F /* main.m */,
+				C5581C5C15EF8CE60024456F /* Supporting Files */,
+			);
+			path = asdf2;
+			sourceTree = "<group>";
+		};
+		C5581C5C15EF8CE60024456F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C5581C5D15EF8CE60024456F /* asdf2-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C5581C5415EF8CE60024456F /* Contracts2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5581C6015EF8CE60024456F /* Build configuration list for PBXNativeTarget "Contracts2" */;
+			buildPhases = (
+				C5581C5115EF8CE60024456F /* Sources */,
+				C5581C5215EF8CE60024456F /* Frameworks */,
+				2B851BE8C5D943CE85BEE797 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Contracts2;
+			productName = asdf2;
+			productReference = C5581C5515EF8CE60024456F /* asdf2 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C508B6C615EDF5440079DDB7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Y;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "robot bubble bath LLC";
+			};
+			buildConfigurationList = C508B6C915EDF5440079DDB7 /* Build configuration list for PBXProject "ObjC-DesignByContracts-experimental-2.0" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C508B6C415EDF5440079DDB7;
+			productRefGroup = C508B6D015EDF5440079DDB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C5581C5415EF8CE60024456F /* Contracts2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B851BE8C5D943CE85BEE797 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C5581C5115EF8CE60024456F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5581C5B15EF8CE60024456F /* main.m in Sources */,
+				C5581C6315EF8D300024456F /* MyClass.m in Sources */,
+				C5A986A715EF8EA700997274 /* Contracts2.m in Sources */,
+				C5A986B615F0185A00997274 /* NSInvocation+EXT.m in Sources */,
+				C5A986BA15F022C500997274 /* EXTRuntimeExtensions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C508B6EB15EDF5440079DDB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C508B6EC15EDF5440079DDB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C5581C6115EF8CE60024456F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 948126D997E8404A80194CAE /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "asdf2/asdf2-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C5581C6215EF8CE60024456F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 948126D997E8404A80194CAE /* Pods.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "asdf2/asdf2-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C508B6C915EDF5440079DDB7 /* Build configuration list for PBXProject "ObjC-DesignByContracts-experimental-2.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C508B6EB15EDF5440079DDB7 /* Debug */,
+				C508B6EC15EDF5440079DDB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5581C6015EF8CE60024456F /* Build configuration list for PBXNativeTarget "Contracts2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5581C6115EF8CE60024456F /* Debug */,
+				C5581C6215EF8CE60024456F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C508B6C615EDF5440079DDB7 /* Project object */;
+}

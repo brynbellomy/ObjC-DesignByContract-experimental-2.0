@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/RTMethod.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/RTMethod</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RTMethod/methodWithObjCMethod:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>+ (id)methodWithObjCMethod:(Method)method</Declaration>
+			
+			
+			<Anchor>//api/name/methodWithObjCMethod:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RTMethod/methodWithSelector:implementation:signature:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>+ (id)methodWithSelector:(SEL)sel implementation:(IMP)imp signature:(NSString *)signature</Declaration>
+			
+			
+			<Anchor>//api/name/methodWithSelector:implementation:signature:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTMethod/initWithObjCMethod:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithObjCMethod:(Method)method</Declaration>
+			
+			
+			<Anchor>//api/name/initWithObjCMethod:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTMethod/initWithSelector:implementation:signature:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithSelector:(SEL)sel implementation:(IMP)imp signature:(NSString *)signature</Declaration>
+			
+			
+			<Anchor>//api/name/initWithSelector:implementation:signature:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTMethod/selector</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (SEL)selector</Declaration>
+			
+			
+			<Anchor>//api/name/selector</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTMethod/selectorName</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)selectorName</Declaration>
+			
+			
+			<Anchor>//api/name/selectorName</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTMethod/implementation</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (IMP)implementation</Declaration>
+			
+			
+			<Anchor>//api/name/implementation</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTMethod/signature</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)signature</Declaration>
+			
+			
+			<Anchor>//api/name/signature</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTMethod/setImplementation:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (void)setImplementation:(IMP)newImp</Declaration>
+			
+			
+			<Anchor>//api/name/setImplementation:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTMethod/sendToTarget:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (id)sendToTarget:(id)target, ...</Declaration>
+			
+			
+			<Anchor>//api/name/sendToTarget:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTMethod/returnValue:sendToTarget:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTMethod.h</DeclaredIn>			
+			
+			<Declaration>- (void)returnValue:(void *)retPtr sendToTarget:(id)target, ...</Declaration>
+			
+			
+			<Anchor>//api/name/returnValue:sendToTarget:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

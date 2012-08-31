@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/RTProtocol.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/RTProtocol</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProtocol.h</DeclaredIn>
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RTProtocol/allProtocols</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProtocol.h</DeclaredIn>			
+			
+			<Declaration>+ (NSArray *)allProtocols</Declaration>
+			
+			
+			<Anchor>//api/name/allProtocols</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RTProtocol/protocolWithObjCProtocol:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProtocol.h</DeclaredIn>			
+			
+			<Declaration>+ (id)protocolWithObjCProtocol:(Protocol *)protocol</Declaration>
+			
+			
+			<Anchor>//api/name/protocolWithObjCProtocol:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RTProtocol/protocolWithName:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProtocol.h</DeclaredIn>			
+			
+			<Declaration>+ (id)protocolWithName:(NSString *)name</Declaration>
+			
+			
+			<Anchor>//api/name/protocolWithName:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProtocol/initWithObjCProtocol:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProtocol.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithObjCProtocol:(Protocol *)protocol</Declaration>
+			
+			
+			<Anchor>//api/name/initWithObjCProtocol:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProtocol/initWithName:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProtocol.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithName:(NSString *)name</Declaration>
+			
+			
+			<Anchor>//api/name/initWithName:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProtocol/objCProtocol</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProtocol.h</DeclaredIn>			
+			
+			<Declaration>- (Protocol *)objCProtocol</Declaration>
+			
+			
+			<Anchor>//api/name/objCProtocol</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProtocol/name</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProtocol.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProtocol/incorporatedProtocols</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProtocol.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)incorporatedProtocols</Declaration>
+			
+			
+			<Anchor>//api/name/incorporatedProtocols</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProtocol/methodsRequired:instance:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProtocol.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)methodsRequired:(BOOL)isRequiredMethod instance:(BOOL)isInstanceMethod</Declaration>
+			
+			
+			<Anchor>//api/name/methodsRequired:instance:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

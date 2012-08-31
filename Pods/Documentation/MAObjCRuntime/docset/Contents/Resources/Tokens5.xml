@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/RTUnregisteredClass.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/RTUnregisteredClass</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTUnregisteredClass.h</DeclaredIn>
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RTUnregisteredClass/unregisteredClassWithName:withSuperclass:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTUnregisteredClass.h</DeclaredIn>			
+			
+			<Declaration>+ (id)unregisteredClassWithName:(NSString *)name withSuperclass:(Class)superclass</Declaration>
+			
+			
+			<Anchor>//api/name/unregisteredClassWithName:withSuperclass:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RTUnregisteredClass/unregisteredClassWithName:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTUnregisteredClass.h</DeclaredIn>			
+			
+			<Declaration>+ (id)unregisteredClassWithName:(NSString *)name</Declaration>
+			
+			
+			<Anchor>//api/name/unregisteredClassWithName:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTUnregisteredClass/initWithName:withSuperclass:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTUnregisteredClass.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithName:(NSString *)name withSuperclass:(Class)superclass</Declaration>
+			
+			
+			<Anchor>//api/name/initWithName:withSuperclass:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTUnregisteredClass/initWithName:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTUnregisteredClass.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithName:(NSString *)name</Declaration>
+			
+			
+			<Anchor>//api/name/initWithName:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTUnregisteredClass/addProtocol:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTUnregisteredClass.h</DeclaredIn>			
+			
+			<Declaration>- (void)addProtocol:(RTProtocol *)protocol</Declaration>
+			
+			
+			<Anchor>//api/name/addProtocol:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTUnregisteredClass/addIvar:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTUnregisteredClass.h</DeclaredIn>			
+			
+			<Declaration>- (void)addIvar:(RTIvar *)ivar</Declaration>
+			
+			
+			<Anchor>//api/name/addIvar:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTUnregisteredClass/addMethod:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTUnregisteredClass.h</DeclaredIn>			
+			
+			<Declaration>- (void)addMethod:(RTMethod *)method</Declaration>
+			
+			
+			<Anchor>//api/name/addMethod:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTUnregisteredClass/addProperty:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTUnregisteredClass.h</DeclaredIn>			
+			
+			<Declaration>- (void)addProperty:(RTProperty *)property</Declaration>
+			
+			
+			<Anchor>//api/name/addProperty:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTUnregisteredClass/registerClass</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTUnregisteredClass.h</DeclaredIn>			
+			
+			<Declaration>- (Class)registerClass</Declaration>
+			
+			
+			<Anchor>//api/name/registerClass</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

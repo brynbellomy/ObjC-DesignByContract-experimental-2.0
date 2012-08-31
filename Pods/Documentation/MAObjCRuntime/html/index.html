@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>MAObjCRuntime 0.0.1 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 737)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">MAObjCRuntime 0.0.1 </a></h1>
+				<a id="developerHome" href="index.html">Bryn Austin Bellomy</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">MAObjCRuntime 0.0.1 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">MAObjCRuntime 0.0.1 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h2>MAObjCRuntime</h2>
+
+<p>MAObjCRuntime is an ObjC wrapper around the Objective-C runtime APIs. If that&rsquo;s confusing, it provides a nice object-oriented interface around (some of) the C functions in /usr/include/objc.</p>
+
+<p>MAObjCRuntime is released under a BSD license. For the official license, see the LICENSE file.</p>
+
+<h2>Quick Start</h2>
+
+<p>The action begins in <code>MARTNSObject.h</code>. Various methods are added to <code>NSObject</code> to allow querying and manipulation. Most of these are class methods, because they operate on classes. There are a couple of instance methods as well. All of these methods start with <code>rt_</code> to avoid name conflicts. The <a href="Classes/RTMethod.html"><code>RTMethod</code></a> and <a href="Classes/RTIvar.html"><code>RTIvar</code></a> classes are used to represent a single method and a single instance variable, respectively. Their use should be fairly obvious.</p>
+
+<h2>Querying</h2>
+
+<p>You can query any class&rsquo;s methods, instance variables, or other attributes using the methods provided. For example:</p>
+
+<pre><code>// get all subclasses of a class
+NSArray *subclasses = [MyClass rt_subclasses];
+
+// check out the methods on NSString
+NSArray *methods = [NSString rt_methods];
+for(RTMethod *method in methods)
+    NSLog(@"%@", method);
+
+// does it have any ivars?
+NSLog(@"%@", [NSString rt_ivars]);
+
+// how big is a constant string instance?
+NSLog(@"%ld", (long)[[@"foo" rt_class] rt_instanceSize]);
+</code></pre>
+
+<h2>Modifying</h2>
+
+<p>You can add new methods using <code>+rt_addMethod:</code>. You can modify the implementation of an existing method using the <code>-setImplementation:</code> method on <a href="Classes/RTMethod.html"><code>RTMethod</code></a>. Example:</p>
+
+<pre><code>// swizzle out [NSObject description] (don't do this)
+static NSString *NewDescription(id self, SEL _cmd)
+{
+    return @"HELLO WORLD!";
+}
+
+Method *description = [NSObject rt_methodForSelector: @selector(description)];
+[description setImplementation: (IMP)NewDescription];
+</code></pre>
+
+<p>You can create new classes using <code>+rt_createSubclassNamed:</code> or <code>+rt_createUnregisteredSubclassNamed:</code>. Note that if you want to add instance variables to a class then you have to use the Unregistered version, and add them before registering the class.</p>
+
+<h2>Objects</h2>
+
+<p>Two instance methods are provided as well. <code>-rt_class</code> exists because Apple likes to fiddle with the return value of <code>-class</code>, and <code>-rt_class</code> always gives you the right value. <code>-rt_setClass:</code> does pretty much what it says: sets the class of the object. It won&rsquo;t reallocate the object or anything, so the new class had better have a memory layout that&rsquo;s compatible with the old one, or else hilarity will ensue.</p>
+
+<h2>Sending Messages</h2>
+
+<p>After getting a list of methods from a class, it&rsquo;s common to want to actually use those on instances of the class. <code>RTMethod</code> provides an easy method for doing this, as well as several convenience wrappers around it.</p>
+
+<p>The basic method for sending messages is <code>[RTMethod returnValue:sendToTarget:]</code>. You use it like this:</p>
+
+<pre><code>`RTMethod` *method = ...;
+SomeType ret;
+[method returnValue: &amp;ret sendToTarget: obj, RTARG(@"hello"), RTARG(42), RTARG(xyz)];
+</code></pre>
+
+<p>It may seem odd to have the return value at the beginning of the argument list, but this comes closest to the order of the normal <code>ret = [obj method]</code> syntax.</p>
+
+<p>All arguments must be wrapped in the <code>RTARG</code> macro. This macro takes care of packaging up each argument so that it can survive passage through the variable argument list and also includes some extra metadata about the argument types so that the code can do some basic sanity checking. No automatic type conversions are performed. If you pass a <code>double</code> to a method that expects an <code>int</code>, this method will <code>abort</code>. That checking is only based on size, however, so if you pass a <code>float</code> where an <code>int</code> is expected, you&rsquo;ll just get a bad value.</p>
+
+<p>Note that while it&rsquo;s not 100% guaranteed, this code does a generally good job of detecting if you forgot to use the <code>RTARG</code> macro and warning you loudly and calling <code>abort</code> instead of simply crashing in a mysterious manner. Also note that there is no sanity checking on the return value, so it&rsquo;s your responsibility to ensure that you use the right type and have enough space to hold it.</p>
+
+<p>For methods which return an object, the <code>[RTMethod sendToTarget:]</code> method is provided which directly returns <code>id</code> instead of making you use return-by-reference. This simplifies the calling of such methods:</p>
+
+<pre><code>`RTMethod` *method = ...;
+id ret = [method sendToTarget: obj, RTARG(@"hello"), RTARG(42), RTARG(xyz)];
+</code></pre>
+
+<p>There is also an <code>NSObject</code> category which provides methods that allows you to switch the order around to be more natural. For example:</p>
+
+<pre><code>`RTMethod` *method = ...;
+id ret = [obj rt_sendMethod: method, RTARG(@"hello"), RTARG(42), RTARG(xyz)];
+</code></pre>
+
+<p>And the same idea for <code>rt_returnValue:sendMethod:</code>.</p>
+
+<p>Finally, there are a pair of convenience methods that take a selector, and combine the method lookup with the actual message sending:</p>
+
+<pre><code>id ret = [obj rt_sendSelector: @selector(...), RTARG(@"hello"), RTARG(42), RTARG(xyz)];
+SomeType ret2;
+[obj rt_returnValue: &amp;ret2 sendSelector: @selector(...), RTARG(12345)];
+</code></pre>
+						
+						
+					</div>
+					
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/RTIvar.html">RTIvar</a></li>
+							
+							<li><a href="Classes/RTMethod.html">RTMethod</a></li>
+							
+							<li><a href="Classes/RTProperty.html">RTProperty</a></li>
+							
+							<li><a href="Classes/RTProtocol.html">RTProtocol</a></li>
+							
+							<li><a href="Classes/RTUnregisteredClass.html">RTUnregisteredClass</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						
+						<h2 class="index-title">Category References</h2>
+						<ul>
+							
+							<li><a href="Categories/NSObject(MARuntime).html">NSObject(MARuntime)</a></li>
+							
+							<li><a href="Categories/NSObject(RTMethodSendingAdditions).html">NSObject(RTMethodSendingAdditions)</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Bryn Austin Bellomy. All rights reserved. (Last updated: 2012-08-30)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 737)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

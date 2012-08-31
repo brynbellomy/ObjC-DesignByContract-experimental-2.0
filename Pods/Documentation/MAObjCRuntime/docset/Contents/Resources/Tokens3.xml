@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/RTProperty.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/RTProperty</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RTProperty/propertyWithObjCProperty:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>+ (id)propertyWithObjCProperty:(objc_property_t)property</Declaration>
+			
+			
+			<Anchor>//api/name/propertyWithObjCProperty:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/RTProperty/propertyWithName:attributes:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>+ (id)propertyWithName:(NSString *)name attributes:(NSDictionary *)attributes</Declaration>
+			
+			
+			<Anchor>//api/name/propertyWithName:attributes:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/initWithObjCProperty:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithObjCProperty:(objc_property_t)property</Declaration>
+			
+			
+			<Anchor>//api/name/initWithObjCProperty:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/initWithName:attributes:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithName:(NSString *)name attributes:(NSDictionary *)attributes</Declaration>
+			
+			
+			<Anchor>//api/name/initWithName:attributes:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/attributes</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (NSDictionary *)attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/addToClass:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)addToClass:(Class)classToAddTo</Declaration>
+			
+			
+			<Anchor>//api/name/addToClass:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/attributeEncodings</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)attributeEncodings</Declaration>
+			
+			
+			<Anchor>//api/name/attributeEncodings</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/isReadOnly</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isReadOnly</Declaration>
+			
+			
+			<Anchor>//api/name/isReadOnly</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/setterSemantics</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (RTPropertySetterSemantics)setterSemantics</Declaration>
+			
+			
+			<Anchor>//api/name/setterSemantics</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/isNonAtomic</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isNonAtomic</Declaration>
+			
+			
+			<Anchor>//api/name/isNonAtomic</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/isDynamic</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isDynamic</Declaration>
+			
+			
+			<Anchor>//api/name/isDynamic</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/isWeakReference</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isWeakReference</Declaration>
+			
+			
+			<Anchor>//api/name/isWeakReference</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/isEligibleForGarbageCollection</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isEligibleForGarbageCollection</Declaration>
+			
+			
+			<Anchor>//api/name/isEligibleForGarbageCollection</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/customGetter</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (SEL)customGetter</Declaration>
+			
+			
+			<Anchor>//api/name/customGetter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/customSetter</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (SEL)customSetter</Declaration>
+			
+			
+			<Anchor>//api/name/customSetter</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/name</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/typeEncoding</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)typeEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/typeEncoding</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/oldTypeEncoding</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)oldTypeEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/oldTypeEncoding</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/RTProperty/ivarName</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>RTProperty.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)ivarName</Declaration>
+			
+			
+			<Anchor>//api/name/ivarName</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

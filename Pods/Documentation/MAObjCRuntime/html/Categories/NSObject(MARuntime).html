@@ -1,0 +1,572 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>NSObject(MARuntime) Category Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 737)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">MAObjCRuntime 0.0.1 </a></h1>
+				<a id="developerHome" href="../index.html">Bryn Austin Bellomy</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">NSObject(MARuntime) Category Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/rt_addMethod:">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_addMethod:</option>
+	
+	<option value="//api/name/rt_addProperty:">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_addProperty:</option>
+	
+	<option value="//api/name/rt_createSubclassNamed:">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_createSubclassNamed:</option>
+	
+	<option value="//api/name/rt_createUnregisteredSubclassNamed:">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_createUnregisteredSubclassNamed:</option>
+	
+	<option value="//api/name/rt_destroyClass">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_destroyClass</option>
+	
+	<option value="//api/name/rt_instanceSize">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_instanceSize</option>
+	
+	<option value="//api/name/rt_isMetaClass">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_isMetaClass</option>
+	
+	<option value="//api/name/rt_ivarForName:">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_ivarForName:</option>
+	
+	<option value="//api/name/rt_ivars">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_ivars</option>
+	
+	<option value="//api/name/rt_methodForSelector:">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_methodForSelector:</option>
+	
+	<option value="//api/name/rt_methods">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_methods</option>
+	
+	<option value="//api/name/rt_properties">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_properties</option>
+	
+	<option value="//api/name/rt_propertyForName:">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_propertyForName:</option>
+	
+	<option value="//api/name/rt_protocols">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_protocols</option>
+	
+	<option value="//api/name/rt_setSuperclass:">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_setSuperclass:</option>
+	
+	<option value="//api/name/rt_subclasses">&nbsp;&nbsp;&nbsp;&nbsp;+ rt_subclasses</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/rt_class">&nbsp;&nbsp;&nbsp;&nbsp;- rt_class</option>
+	
+	<option value="//api/name/rt_setClass:">&nbsp;&nbsp;&nbsp;&nbsp;- rt_setClass:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_addMethod:">rt_addMethod:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_addProperty:">rt_addProperty:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_createSubclassNamed:">rt_createSubclassNamed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_createUnregisteredSubclassNamed:">rt_createUnregisteredSubclassNamed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_destroyClass">rt_destroyClass</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_instanceSize">rt_instanceSize</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_isMetaClass">rt_isMetaClass</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_ivarForName:">rt_ivarForName:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_ivars">rt_ivars</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_methodForSelector:">rt_methodForSelector:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_methods">rt_methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_properties">rt_properties</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_propertyForName:">rt_propertyForName:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_protocols">rt_protocols</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_setSuperclass:">rt_setSuperclass:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_subclasses">rt_subclasses</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_class">rt_class</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rt_setClass:">rt_setClass:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="NSObject(MARuntime) Category Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">NSObject(MARuntime) Category Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">MARTNSObject.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_subclasses">+&nbsp;rt_subclasses</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_createUnregisteredSubclassNamed:">+&nbsp;rt_createUnregisteredSubclassNamed:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_createSubclassNamed:">+&nbsp;rt_createSubclassNamed:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_destroyClass">+&nbsp;rt_destroyClass</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_isMetaClass">+&nbsp;rt_isMetaClass</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_setSuperclass:">+&nbsp;rt_setSuperclass:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_instanceSize">+&nbsp;rt_instanceSize</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_protocols">+&nbsp;rt_protocols</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_methods">+&nbsp;rt_methods</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_methodForSelector:">+&nbsp;rt_methodForSelector:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_addMethod:">+&nbsp;rt_addMethod:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_ivars">+&nbsp;rt_ivars</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_ivarForName:">+&nbsp;rt_ivarForName:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_properties">+&nbsp;rt_properties</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_propertyForName:">+&nbsp;rt_propertyForName:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_addProperty:">+&nbsp;rt_addProperty:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_class">&ndash;&nbsp;rt_class</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rt_setClass:">&ndash;&nbsp;rt_setClass:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_addMethod:" title="rt_addMethod:"></a>
+	<h3 class="subsubtitle method-title">rt_addMethod:</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_addProperty:" title="rt_addProperty:"></a>
+	<h3 class="subsubtitle method-title">rt_addProperty:</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_createSubclassNamed:" title="rt_createSubclassNamed:"></a>
+	<h3 class="subsubtitle method-title">rt_createSubclassNamed:</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_createUnregisteredSubclassNamed:" title="rt_createUnregisteredSubclassNamed:"></a>
+	<h3 class="subsubtitle method-title">rt_createUnregisteredSubclassNamed:</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_destroyClass" title="rt_destroyClass"></a>
+	<h3 class="subsubtitle method-title">rt_destroyClass</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_instanceSize" title="rt_instanceSize"></a>
+	<h3 class="subsubtitle method-title">rt_instanceSize</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_isMetaClass" title="rt_isMetaClass"></a>
+	<h3 class="subsubtitle method-title">rt_isMetaClass</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_ivarForName:" title="rt_ivarForName:"></a>
+	<h3 class="subsubtitle method-title">rt_ivarForName:</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_ivars" title="rt_ivars"></a>
+	<h3 class="subsubtitle method-title">rt_ivars</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_methodForSelector:" title="rt_methodForSelector:"></a>
+	<h3 class="subsubtitle method-title">rt_methodForSelector:</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_methods" title="rt_methods"></a>
+	<h3 class="subsubtitle method-title">rt_methods</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_properties" title="rt_properties"></a>
+	<h3 class="subsubtitle method-title">rt_properties</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_propertyForName:" title="rt_propertyForName:"></a>
+	<h3 class="subsubtitle method-title">rt_propertyForName:</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_protocols" title="rt_protocols"></a>
+	<h3 class="subsubtitle method-title">rt_protocols</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_setSuperclass:" title="rt_setSuperclass:"></a>
+	<h3 class="subsubtitle method-title">rt_setSuperclass:</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_subclasses" title="rt_subclasses"></a>
+	<h3 class="subsubtitle method-title">rt_subclasses</h3>
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_class" title="rt_class"></a>
+	<h3 class="subsubtitle method-title">rt_class</h3>
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rt_setClass:" title="rt_setClass:"></a>
+	<h3 class="subsubtitle method-title">rt_setClass:</h3>
+	
+	
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Bryn Austin Bellomy. All rights reserved. (Last updated: 2012-08-30)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 737)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+		</script>
+	</body>
+</html>
