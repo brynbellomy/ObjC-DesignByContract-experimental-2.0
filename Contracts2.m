@@ -8,7 +8,15 @@
 
 #import "Contracts2.h"
 
+/**
+ * Function prototypes.
+ */
 
+NSInvocation *CreatePreconditionsInvocation(NSInvocation *baseInvocation, id target);
+NSInvocation *CreatePostconditionsInvocation(NSInvocation *baseInvocation, id target);
+void Contracts_CopyInvocationArg(NSInvocation *from, NSInvocation *to, NSUInteger i_src, NSUInteger i_dst);
+void Contracts_CopyInvocationArgs(NSInvocation *from, NSInvocation *to, NSUInteger dstStart, NSInteger dstOffset);
+void *Contracts_GetReturnValueForInvokedInvocation(NSInvocation *invocation);
 
 /**
  * # CreatePreconditionsInvocation()
@@ -188,39 +196,39 @@ void *Contracts_GetReturnValueForInvokedInvocation(NSInvocation *invocation) {
           [mainInvoc setArgumentsFromArgumentList:args];
           va_end(args);
           
-          // 1. first invariants
-          if ([self respondsToSelector: @selector(invariants)])
-            [self invariants];
-          
-          // 2. preconditions
+          // 1. preconditions
           {
             NSInvocation *pre = CreatePreconditionsInvocation(mainInvoc, self);
             [pre invokeWithTarget:self];
           }
           
           
+          // 2. first invariants
+          if ([self respondsToSelector: @selector(invariants)])
+            [self invariants];
+          
+          
           // (create post invocation at last possible moment)
-          {
-            NSInvocation *post = CreatePostconditionsInvocation(mainInvoc, self);
-            
-            
-            // 3. call the main method that's being contracted (i.e. the one we
-            //    prefixed with "INNER_") and capture its return value
-            mainInvoc.selector = PrefixSelector(INNER__, theMethod.selector);
-            [mainInvoc invokeWithTarget:self];
-            
-            
-            // 4. postconditions (with main method return value as its last argument)
-            void *retval = (void *) Contracts_GetReturnValueForInvokedInvocation(mainInvoc);
-            [post setArgument: &retval
-                      atIndex: post.methodSignature.numberOfArguments - 1];
-            [post invokeWithTarget: self];
-          }
+          NSInvocation *post = CreatePostconditionsInvocation(mainInvoc, self);
           
           
-          // 5. second invariants
+          // 3. call the main method that's being contracted (i.e. the one we
+          //    prefixed with "INNER_") and capture its return value
+          mainInvoc.selector = PrefixSelector(INNER__, theMethod.selector);
+          [mainInvoc invokeWithTarget:self];
+          
+          
+          // 4. second invariants
           if ([self respondsToSelector:@selector(invariants)])
             [self invariants];
+          
+          
+          // 5. postconditions (with main method return value as its last argument)
+          void *retval = (void *) Contracts_GetReturnValueForInvokedInvocation(mainInvoc);
+          [post setArgument: &retval
+                    atIndex: post.methodSignature.numberOfArguments - 1];
+          [post invokeWithTarget: self];
+          
           
         })];
         [subclass addMethod: theMethod];

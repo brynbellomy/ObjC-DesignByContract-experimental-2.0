@@ -13,12 +13,12 @@
   @property (nonatomic, copy, readwrite) NSString *dog;
 @end
 
-@interface ContractsProxy (MyClass)
-  @property (nonatomic, copy, readwrite) NSString *dog;
-@end
-
-
-@interface Contract_ProxyingSubclass_MyClass : MyClass
-  @property (nonatomic, copy, readwrite) NSString *dog;
-@end
+//@interface ContractsProxy (MyClass)
+//  @property (nonatomic, copy, readwrite) NSString *dog;
+//@end
+//
+//
+//@interface Contract_ProxyingSubclass_MyClass : MyClass
+//  @property (nonatomic, copy, readwrite) NSString *dog;
+//@end
 

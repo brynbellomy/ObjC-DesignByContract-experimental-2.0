@@ -52,7 +52,7 @@ Preconditions myName:(NSString *)something {
   NSLog (@"[myName:]");
   
   [self setDog: _dog];
-    self.dog = nil;
+  self.dog = nil;
   
   return [@"HI THERE BRO" stringByAppendingString:something];
 }
