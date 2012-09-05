@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSMutableDictionary(Indexing).html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSMutableDictionary(Indexing)</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>Bryn.h</DeclaredIn>
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSMutableDictionary(Indexing)/setObject:forKeyedSubscript:</TokenIdentifier>
+			<Abstract></Abstract>
+			<DeclaredIn>Bryn.h</DeclaredIn>			
+			
+			<Declaration>- (void)setObject:(id)obj forKeyedSubscript:(id)key</Declaration>
+			
+			
+			<Anchor>//api/name/setObject:forKeyedSubscript:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

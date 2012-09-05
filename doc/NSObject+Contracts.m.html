@@ -1,0 +1,214 @@
+<!DOCTYPE html><html><head><title>NSObject+Contracts.m</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><link rel="stylesheet" media="all" href="doc-style.css"><script src="doc-filelist.js"></script><script>var relativeDir = '', thisFile = '/Users/bryn/.docker/templates/tmpl.jade', defaultSidebar = true;</script><script src="doc-script.js"></script></head><body><div id="sidebar_wrapper"><div id="sidebar_switch"><span class="tree">Files</span><span class="headings">Headings</span></div><div id="tree"></div><div id="headings"><div class="heading h1"><a href="#-implementation-nsobject--contracts-">@implementation NSObject (Contracts)</a></div><div class="heading h2"><a href="#instance-methods">Instance methods</a></div><div class="heading h4"><a href="#invariants">invariants</a></div><div class="heading h4"><a href="#contracts__setcurrentphase-">Contracts__SetCurrentPhase:</a></div><div class="heading h4"><a href="#ascontractproxyingsubclass">asContractProxyingSubclass</a></div></div></div><div id="sidebar-toggle"></div><div id="container"><div class="background highlight"></div><table cellpadding="0" cellspacing="0"><tbody><tr><td class="docs"><h1>NSObject+Contracts.m</h1></td><td class="code highlight"></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+<p>NSObject+Contracts.m<br /> ObjC-DesignByContracts-2.0</p>
+
+<p>Created by bryn austin bellomy on 9.4.12.<br /> Copyright (c) 2012 robot bubble bath LLC. All rights reserved.</p></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#import &lt;MAObjCRuntime/RTMethod.h&gt;</span>
+<span class="cp">#import &lt;BrynKit/BrynKit.h&gt;</span>
+<span class="cp">#import &lt;CocoaLumberjack/DDLog.h&gt;</span>
+
+<span class="cp">#import &quot;Contracts2.h&quot;</span>
+<span class="cp">#import &quot;NSObject+Contracts.h&quot;</span></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="-implementation-nsobject--contracts-">
+  <h1>
+    <a href="#-implementation-nsobject--contracts-" class="pilcrow">&#182;</a>
+    @implementation NSObject (Contracts)
+  </h1>
+</div>
+</div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="k">@implementation</span> <span class="nc">NSObject</span> <span class="nl">(Contracts)</span></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="instance-methods">
+  <h2>
+    <a href="#instance-methods" class="pilcrow">&#182;</a>
+    Instance methods
+  </h2>
+</div>
+</div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="invariants">
+  <h4>
+    <a href="#invariants" class="pilcrow">&#182;</a>
+    invariants
+  </h4>
+</div>
+</div><div class="body"><p>Stub method called to implement class invariants on an object.</p></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">invariants</span> <span class="p">{</span>
+<span class="p">}</span></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="contracts__setcurrentphase-">
+  <h4>
+    <a href="#contracts__setcurrentphase-" class="pilcrow">&#182;</a>
+    Contracts__SetCurrentPhase:
+  </h4>
+</div>
+</div><div class="body"><p>Internal method allowing us to log which phase of a contract has failed.</p></div><div class="details"><div class="dox_tag_title">API</div><div class="dox_tag_detail"><span class="dox_type">private</span></div></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="n">ContractsPhase</span><span class="p">)</span> <span class="nf">Contracts__SetCurrentPhase:</span><span class="p">(</span><span class="n">ContractsPhase</span><span class="p">)</span><span class="nv">phase</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="n">ContractsPhase</span> <span class="n">Contracts_CurrentPhase</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">phase</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">Contracts_CurrentPhase</span> <span class="o">=</span> <span class="n">phase</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">Contracts_CurrentPhase</span><span class="p">;</span>
+<span class="p">}</span></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="ascontractproxyingsubclass">
+  <h4>
+    <a href="#ascontractproxyingsubclass" class="pilcrow">&#182;</a>
+    asContractProxyingSubclass
+  </h4>
+</div>
+</div><div class="body"><p>This is it.  The big deal.</p>
+
+<p>If you want to use contracts on an instance of a class, you must call this method and replace any references you're holding to the original instance with the return value of this method.</p>
+
+<div class="highlight"><pre lang="objective-c">- (id) init {
+  self = [super init];
+  if (self) { ... }
+  return [self asContractProxyingSubclass];
+}
+</pre></div></div><div class="details"><div class="dox_tag_title">Returns</div><div class="dox_tag_detail"><span class="dox_type">id</span><span class="description">itself ... kind of narcissistic, I know.</span></div></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">asContractProxyingSubclass</span> <span class="p">{</span>
+  
+  <span class="n">NSString</span> <span class="o">*</span><span class="n">className</span> <span class="o">=</span> <span class="n">NSStringFromClass</span><span class="p">([</span><span class="n">self</span> <span class="n">class</span><span class="p">]);</span>
+  
+  <span class="n">NSString</span> <span class="o">*</span><span class="n">subclassName</span> <span class="o">=</span> <span class="p">[</span><span class="n">ContractsPrefix_ProxyingSubclassName</span> <span class="nl">stringByAppendingString:</span> <span class="n">className</span><span class="p">];</span>
+  <span class="n">Class</span> <span class="n">existingSubclass</span> <span class="o">=</span> <span class="n">NSClassFromString</span><span class="p">(</span><span class="n">subclassName</span><span class="p">);</span>
+  
+  <span class="k">if</span> <span class="p">(</span><span class="n">existingSubclass</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">RTUnregisteredClass</span> <span class="o">*</span><span class="n">subclass</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">class</span> <span class="nl">rt_createUnregisteredSubclassNamed:</span><span class="n">subclassName</span><span class="p">];</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">subclass</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+    
+    <span class="n">NSArray</span> <span class="o">*</span><span class="n">methods</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">class</span><span class="p">.</span><span class="n">rt_methods</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">RTMethod</span> <span class="o">*</span><span class="n">theMethod</span> <span class="k">in</span> <span class="n">methods</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span>
+          <span class="n">ext_getImmediateInstanceMethod</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">class</span><span class="p">,</span> <span class="n">theMethod</span><span class="p">.</span><span class="n">selector</span><span class="p">)</span> <span class="o">==</span> <span class="nb">NULL</span>
+          <span class="o">||</span> <span class="n">sel_isEqual</span><span class="p">(</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selector</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="n">invariants</span><span class="p">))</span>
+          <span class="o">||</span> <span class="n">sel_isEqual</span><span class="p">(</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selector</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="n">invariantsInner</span><span class="p">))</span>
+          <span class="o">||</span> <span class="n">sel_isEqual</span><span class="p">(</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selector</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="n">asContractProxyingSubclass</span><span class="p">))</span>
+          <span class="o">||</span> <span class="n">sel_isEqual</span><span class="p">(</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selector</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="n">init</span><span class="p">))</span>
+          <span class="o">||</span> <span class="n">sel_isEqual</span><span class="p">(</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selector</span><span class="p">,</span> <span class="k">@selector</span><span class="p">(</span><span class="nl">Contracts__SetCurrentPhase:</span><span class="p">))</span>
+          <span class="o">||</span> <span class="p">[</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selectorName</span> <span class="nl">hasPrefix:</span> <span class="n">ContractsPrefix_WrappedMethodSelector</span><span class="p">]</span>
+          <span class="o">||</span> <span class="p">[</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selectorName</span> <span class="nl">hasPrefix:</span> <span class="n">ContractsPrefix_PreconditionsSelector</span><span class="p">]</span>
+          <span class="o">||</span> <span class="p">[</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selectorName</span> <span class="nl">hasPrefix:</span> <span class="n">ContractsPrefix_PostconditionsSelector</span><span class="p">]</span>
+          <span class="o">||</span> <span class="p">[</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selectorName</span> <span class="nl">isEqualToString:</span><span class="s">@&quot;.cxx_destruct&quot;</span><span class="p">]</span>
+          <span class="p">)</span>
+      <span class="p">{</span>
+        <span class="k">continue</span><span class="p">;</span>
+      <span class="p">}</span>
+      
+      <span class="n">NSString</span> <span class="o">*</span><span class="n">strSelector</span> <span class="o">=</span> <span class="n">theMethod</span><span class="p">.</span><span class="n">selectorName</span><span class="p">;</span>
+      <span class="n">NSString</span> <span class="o">*</span><span class="n">classAndSelector</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span><span class="s">@&quot;%@ %@&quot;</span><span class="p">,</span> <span class="n">className</span><span class="p">,</span> <span class="n">strSelector</span><span class="p">];</span>
+      </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>A.  hide the actual method by prefixing its selector with INNER_</p></td><td class="code highlight"><div class="highlight"><pre>      <span class="p">{</span>
+        <span class="n">RTMethod</span> <span class="o">*</span><span class="n">renamedMethod</span> <span class="o">=</span> <span class="p">[</span><span class="n">RTMethod</span> <span class="nl">methodWithSelector:</span> <span class="n">ContractsWrappedMethodSelector</span><span class="p">(</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selector</span><span class="p">)</span>
+                                                <span class="nl">implementation:</span> <span class="n">theMethod</span><span class="p">.</span><span class="n">implementation</span>
+                                                     <span class="nl">signature:</span> <span class="n">theMethod</span><span class="p">.</span><span class="n">signature</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">class</span> <span class="nl">rt_addMethod:</span><span class="n">renamedMethod</span><span class="p">];</span>
+      <span class="p">}</span>
+      
+      </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>B.  swizzle in a new method implementation that trampolines up to the invariants, pre, post, and original method implementations</p></td><td class="code highlight"><div class="highlight"><pre>      <span class="p">{</span>
+        <span class="n">NSMethodSignature</span> <span class="o">*</span><span class="n">methodSignature</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">rt_class</span> <span class="nl">instanceMethodSignatureForSelector:</span> <span class="n">theMethod</span><span class="p">.</span><span class="n">selector</span><span class="p">];</span>
+        </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<p>this block is the new IMP for the selector</p></td><td class="code highlight"><div class="highlight"><pre>        <span class="p">[</span><span class="n">theMethod</span> <span class="nl">setImplementation:</span> <span class="n">imp_implementationWithBlock</span><span class="p">(</span><span class="o">^</span><span class="p">(</span><span class="kt">id</span> <span class="n">self</span><span class="p">,</span> <span class="p">...)</span> <span class="p">{</span>
+<span class="cp">          </span>
+<span class="cp">#if SYNCHRONIZE_CONTRACTS == 1</span>
+          <span class="k">@synchronized</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
+<span class="cp">#endif</span>
+            
+            <span class="n">NSInvocation</span> <span class="o">*</span><span class="n">mainInvoc</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSInvocation</span> <span class="nl">invocationWithMethodSignature:</span> <span class="n">methodSignature</span><span class="p">];</span>
+            <span class="n">mainInvoc</span><span class="p">.</span><span class="n">selector</span> <span class="o">=</span> <span class="n">theMethod</span><span class="p">.</span><span class="n">selector</span><span class="p">;</span>
+            </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10">&#182;</a>
+</div>
+<p>copy the variable args list into the NSInvocation</p></td><td class="code highlight"><div class="highlight"><pre>            <span class="n">va_list</span> <span class="n">args</span><span class="p">;</span>
+            <span class="n">va_start</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">self</span><span class="p">);</span>
+            <span class="p">[</span><span class="n">mainInvoc</span> <span class="nl">setArgumentsFromArgumentList:</span><span class="n">args</span><span class="p">];</span>
+            <span class="n">va_end</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+            </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
+</div>
+<p>1) preconditions</p></td><td class="code highlight"><div class="highlight"><pre>            <span class="p">{</span>
+              <span class="p">[</span><span class="n">self</span> <span class="nl">Contracts__SetCurrentPhase:</span> <span class="n">ContractsPhase_Preconditions</span><span class="p">];</span>
+              <span class="n">NSInvocation</span> <span class="o">*</span><span class="n">pre</span> <span class="o">=</span> <span class="n">CreatePreconditionsInvocation</span><span class="p">(</span><span class="n">mainInvoc</span><span class="p">,</span> <span class="n">self</span><span class="p">);</span>
+              <span class="p">[</span><span class="n">pre</span> <span class="nl">invokeWithTarget:</span><span class="n">self</span><span class="p">];</span>
+              <span class="n">DDLogInfo</span><span class="p">(([</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span> <span class="n">COLOR_SEL</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">)</span> <span class="n">COLOR_SUCCESS</span><span class="p">(</span><span class="s">@&quot; Preconditions passed.&quot;</span><span class="p">),</span> <span class="n">classAndSelector</span><span class="p">]));</span>
+            <span class="p">}</span>
+            
+            </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12">&#182;</a>
+</div>
+<p>2) first invariants</p></td><td class="code highlight"><div class="highlight"><pre>            <span class="k">if</span> <span class="p">([</span><span class="n">self</span> <span class="nl">respondsToSelector:</span> <span class="k">@selector</span><span class="p">(</span><span class="n">invariants</span><span class="p">)])</span> <span class="p">{</span>
+              <span class="p">[</span><span class="n">self</span> <span class="nl">Contracts__SetCurrentPhase:</span> <span class="n">ContractsPhase_FirstInvariants</span><span class="p">];</span>
+              <span class="p">[</span><span class="n">self</span> <span class="n">invariants</span><span class="p">];</span>
+              <span class="n">DDLogInfo</span><span class="p">(([</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span> <span class="n">COLOR_SEL</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">)</span> <span class="n">COLOR_SUCCESS</span><span class="p">(</span><span class="s">@&quot; First invariants passed.&quot;</span><span class="p">),</span> <span class="n">classAndSelector</span><span class="p">]));</span>
+            <span class="p">}</span>
+            </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13">&#182;</a>
+</div>
+<p>(create post invocation at last possible moment)</p></td><td class="code highlight"><div class="highlight"><pre>            <span class="n">NSInvocation</span> <span class="o">*</span><span class="n">post</span> <span class="o">=</span> <span class="n">CreatePostconditionsInvocation</span><span class="p">(</span><span class="n">mainInvoc</span><span class="p">,</span> <span class="n">self</span><span class="p">);</span>
+            
+            </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14">&#182;</a>
+</div>
+<p>3) call the main method that's being contracted (i.e. the one we prefixed with "INNER_") and capture its return value</p></td><td class="code highlight"><div class="highlight"><pre>            <span class="n">mainInvoc</span><span class="p">.</span><span class="n">selector</span> <span class="o">=</span> <span class="n">ContractsWrappedMethodSelector</span><span class="p">(</span><span class="n">theMethod</span><span class="p">.</span><span class="n">selector</span><span class="p">);</span>
+            <span class="p">[</span><span class="n">mainInvoc</span> <span class="nl">invokeWithTarget:</span><span class="n">self</span><span class="p">];</span>
+            
+            </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15">&#182;</a>
+</div>
+<p>4) second invariants</p></td><td class="code highlight"><div class="highlight"><pre>            <span class="k">if</span> <span class="p">([</span><span class="n">self</span> <span class="nl">respondsToSelector:</span> <span class="k">@selector</span><span class="p">(</span><span class="n">invariants</span><span class="p">)])</span> <span class="p">{</span>
+              <span class="p">[</span><span class="n">self</span> <span class="nl">Contracts__SetCurrentPhase:</span> <span class="n">ContractsPhase_SecondInvariants</span><span class="p">];</span>
+              <span class="p">[</span><span class="n">self</span> <span class="n">invariants</span><span class="p">];</span>
+              <span class="n">DDLogInfo</span><span class="p">(([</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span> <span class="n">COLOR_SEL</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">)</span> <span class="n">COLOR_SUCCESS</span><span class="p">(</span><span class="s">@&quot; Second invariants passed.&quot;</span><span class="p">),</span> <span class="n">classAndSelector</span><span class="p">]));</span>
+            <span class="p">}</span>
+            
+            </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-16" id="section-16">&#182;</a>
+</div>
+<p>5) postconditions (with main method return value as its last argument)</p></td><td class="code highlight"><div class="highlight"><pre>            <span class="kt">void</span> <span class="o">*</span><span class="n">retval</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span> <span class="n">Contracts_GetReturnValueForInvokedInvocation</span><span class="p">(</span><span class="n">mainInvoc</span><span class="p">);</span>
+            <span class="p">[</span><span class="n">self</span> <span class="nl">Contracts__SetCurrentPhase:</span> <span class="n">ContractsPhase_Postconditions</span><span class="p">];</span>
+            <span class="p">[</span><span class="n">post</span> <span class="nl">setArgument:</span> <span class="o">&amp;</span><span class="n">retval</span>
+                      <span class="nl">atIndex:</span> <span class="n">post</span><span class="p">.</span><span class="n">methodSignature</span><span class="p">.</span><span class="n">numberOfArguments</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+            <span class="p">[</span><span class="n">post</span> <span class="nl">invokeWithTarget:</span> <span class="n">self</span><span class="p">];</span>
+            <span class="n">DDLogInfo</span><span class="p">(([</span><span class="n">NSString</span> <span class="nl">stringWithFormat:</span> <span class="n">COLOR_SEL</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">)</span> <span class="n">COLOR_SUCCESS</span><span class="p">(</span><span class="s">@&quot; Postconditions passed.&quot;</span><span class="p">),</span> <span class="n">classAndSelector</span><span class="p">]));</span>
+<span class="cp">            </span>
+<span class="cp">#if SYNCHRONIZE_CONTRACTS == 1</span>
+          <span class="p">}</span>
+<span class="cp">#endif</span>
+          
+        <span class="p">})];</span>
+        <span class="p">[</span><span class="n">subclass</span> <span class="nl">addMethod:</span> <span class="n">theMethod</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17">&#182;</a>
+</div>
+<p>register the dynamic proxying subclass and set the classname that 'self' should pose as</p></td><td class="code highlight"><div class="highlight"><pre>    <span class="p">[</span><span class="n">subclass</span> <span class="n">registerClass</span><span class="p">];</span>
+    <span class="n">existingSubclass</span> <span class="o">=</span> <span class="n">NSClassFromString</span><span class="p">(</span><span class="n">subclassName</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  </pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-18" id="section-18">&#182;</a>
+</div>
+<p>annnnnd pose</p></td><td class="code highlight"><div class="highlight"><pre>  <span class="k">if</span> <span class="p">(</span><span class="n">existingSubclass</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">object_setClass</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">existingSubclass</span><span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">@end</span>
+</pre></div></td></tr></tbody></table></div></body></html>

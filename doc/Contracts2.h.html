@@ -1,0 +1,151 @@
+<!DOCTYPE html><html><head><title>Contracts2.h</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><link rel="stylesheet" media="all" href="doc-style.css"><script src="doc-filelist.js"></script><script>var relativeDir = '', thisFile = '/Users/bryn/.docker/templates/tmpl.jade', defaultSidebar = true;</script><script src="doc-script.js"></script></head><body><div id="sidebar_wrapper"><div id="sidebar_switch"><span class="tree">Files</span><span class="headings">Headings</span></div><div id="tree"></div><div id="headings"><div class="heading h1"><a href="#that--">That()</a></div></div></div><div id="sidebar-toggle"></div><div id="container"><div class="background highlight"></div><table cellpadding="0" cellspacing="0"><tbody><tr><td class="docs"><h1>Contracts2.h</h1></td><td class="code highlight"></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+<p>Contracts2.h <br /><br /> ObjC-DesignByContracts-2.0  </p>
+
+<p>Created by bryn austin bellomy on 8.29.12. <br /><br /> Copyright (c) 2012 robot bubble bath LLC. All rights reserved.  </p></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#import &lt;objc/objc-runtime.h&gt;</span>
+<span class="cp">#import &lt;MAObjCRuntime/MARTNSObject.h&gt;</span>
+<span class="cp">#import &lt;MAObjCRuntime/RTUnregisteredClass.h&gt;</span>
+<span class="cp">#import &lt;MAObjCRuntime/RTMethod.h&gt;</span>
+
+<span class="cp">#import &quot;NSInvocation+EXT.h&quot;</span>
+<span class="cp">#import &quot;EXTRuntimeExtensions.h&quot;</span>
+
+
+<span class="cp">#ifndef SYNCHRONIZE_CONTRACTS</span>
+<span class="cp">#  define SYNCHRONIZE_CONTRACTS 1</span>
+<span class="cp">#endif</span>
+
+
+
+<span class="cp">#define ContractsPrefix_PreconditionsSelector  @&quot;PRECONDITIONS__:&quot;</span>
+<span class="cp">#define ContractsPrefix_PostconditionsSelector @&quot;POSTCONDITIONS__:&quot;</span>
+<span class="cp">#define ContractsPrefix_WrappedMethodSelector  @&quot;INNER__&quot;</span>
+<span class="cp">#define ContractsPrefix_ProxyingSubclassName   @&quot;Contracts_ProxyingSubclass_&quot;</span>
+
+
+<span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
+  <span class="n">ContractsPhase_Preconditions</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span><span class="p">),</span>
+  <span class="n">ContractsPhase_FirstInvariants</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">),</span>
+  <span class="n">ContractsPhase_SecondInvariants</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">),</span>
+  <span class="n">ContractsPhase_Postconditions</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">}</span> <span class="n">ContractsPhase</span><span class="p">;</span></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="that--">
+  <h1>
+    <a href="#that--" class="pilcrow">&#182;</a>
+    That()
+  </h1>
+</div>
+</div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#define That(test, msg, ...) \</span>
+<span class="cp">  do { \</span>
+<span class="cp">    if (!(test)) { \</span>
+<span class="cp">      NSMutableString *classAndMethod = [[NSStringFromClass([self class]) stringByReplacingOccurrencesOfString: ContractsPrefix_ProxyingSubclassName withString: @&quot;&quot;] mutableCopy]; \</span>
+<span class="cp">      \</span>
+<span class="cp">      NSString *conditionType = nil; \</span>
+<span class="cp">      ContractsPhase phase = [self Contracts__SetCurrentPhase:0];  \</span>
+<span class="cp">      switch (phase) { \</span>
+<span class="cp">        case ContractsPhase_Preconditions: \</span>
+<span class="cp">          [classAndMethod appendFormat:@&quot; %@&quot;, [NSStringFromSelector(_cmd) stringByReplacingOccurrencesOfString: ContractsPrefix_PreconditionsSelector withString:@&quot;&quot;]]; \</span>
+<span class="cp">          conditionType = @&quot;precondition&quot;; \</span>
+<span class="cp">          break; \</span>
+<span class="cp">        case ContractsPhase_FirstInvariants: \</span>
+<span class="cp">          [classAndMethod appendString:@&quot; invariants&quot;]; \</span>
+<span class="cp">          conditionType = @&quot;invariant&quot;; \</span>
+<span class="cp">          break; \</span>
+<span class="cp">        case ContractsPhase_SecondInvariants: \</span>
+<span class="cp">          [classAndMethod appendString:@&quot; invariants&quot;]; \</span>
+<span class="cp">          conditionType = @&quot;invariant&quot;; \</span>
+<span class="cp">          break; \</span>
+<span class="cp">        case ContractsPhase_Postconditions: \</span>
+<span class="cp">          [classAndMethod appendFormat:@&quot; %@&quot;, [NSStringFromSelector(_cmd) stringByReplacingOccurrencesOfString: ContractsPrefix_PostconditionsSelector withString:@&quot;&quot;]]; \</span>
+<span class="cp">          conditionType = @&quot;postcondition&quot;; \</span>
+<span class="cp">          break; \</span>
+<span class="cp">        default: \</span>
+<span class="cp">          break; \</span>
+<span class="cp">      } \</span>
+<span class="cp">      \</span>
+<span class="cp">      NSString *message = [NSString stringWithFormat: msg, ## __VA_ARGS__]; \</span>
+<span class="cp">      DDLogError(COLOR_ERROR(@&quot;Failed %@ in &quot;) COLOR_SEL(@&quot;%@&quot;) @&quot;: &quot; @ # test @&quot;.  %@&quot;, conditionType, classAndMethod, message); \</span>
+<span class="cp">      NSAssert1(NO, @&quot;Failed while evaluating %@s.&quot;, conditionType); \</span>
+<span class="cp">    } \</span>
+<span class="cp">  } while(0)</span>
+
+
+<span class="cp">#define Preconditions \</span>
+<span class="cp">  - (void) PRECONDITIONS__:(id)nilObj</span>
+
+
+<span class="cp">#define Postconditions \</span>
+<span class="cp">  - (void) POSTCONDITIONS__:(id)nilObj</span>
+
+
+<span class="cp">#define GetResultAs(retType) \</span>
+<span class="cp">  _result:(retType)result</span></pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3">&#182;</a>
+</div>
+<div class="dox"><div class="summary"></div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#define Invariants \</span>
+<span class="cp">  - (void) invariants { \</span>
+<span class="cp">    [self invariantsInner]; \</span>
+<span class="cp">    [super invariants]; \</span>
+<span class="cp">  } \</span>
+<span class="cp">  - (void) invariantsInner</span></pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4">&#182;</a>
+</div>
+<div class="dox"><div class="summary"></div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#define Contracts_SetInvocationSelf(invocation, newSelf) \</span>
+<span class="cp">  do { \</span>
+<span class="cp">    [invocation setArgument:((__bridge void *)newSelf) atIndex:0]; \</span>
+<span class="cp">  } while(0)</span></pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5">&#182;</a>
+</div>
+<div class="dox"><div class="summary"></div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#define Contracts_SetInvocationArg(invocation, newArg, index) \</span>
+<span class="cp">  do { \</span>
+<span class="cp">    void *buffer = calloc(1, sizeof(newArg)); \</span>
+<span class="cp">    memcpy(buffer, newArg, bufferSize); \</span>
+<span class="cp">    [invocation setArgument:&amp;buffer atIndex:index]; \</span>
+<span class="cp">  } while(0)</span></pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<div class="dox"><div class="summary"></div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#define Contracts_SetInvocationArgNil(invocation, index) \</span>
+<span class="cp">  do { \</span>
+<span class="cp">    [invocation setArgument:(__bridge void *)NSNull.null atIndex:index]; \</span>
+<span class="cp">  } while(0)</span></pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<div class="dox"><div class="summary"></div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#define ContractsWrappedMethodSelector(selector) \</span>
+<span class="cp">  ({ NSSelectorFromString([ContractsPrefix_WrappedMethodSelector stringByAppendingString: NSStringFromSelector(selector)]); })</span></pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<div class="dox"><div class="summary"></div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#define GetPreconditionsSelectorFromBase(base) \</span>
+<span class="cp">  ({ NSSelectorFromString([ContractsPrefix_PreconditionsSelector stringByAppendingString: NSStringFromSelector(base)]); })</span></pre></div></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<div class="dox"><div class="summary"></div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#define GetPostconditionsSelectorFromBase(base) \</span>
+<span class="cp">  ({ NSSelectorFromString([ContractsPrefix_PostconditionsSelector stringByAppendingFormat:@&quot;%@_result:&quot;, NSStringFromSelector(base)]); })</span>
+
+
+
+
+<span class="n">NSInvocation</span> <span class="o">*</span><span class="n">CreatePreconditionsInvocation</span><span class="p">(</span><span class="n">NSInvocation</span> <span class="o">*</span><span class="n">baseInvocation</span><span class="p">,</span> <span class="kt">id</span> <span class="n">target</span><span class="p">);</span>
+<span class="n">NSInvocation</span> <span class="o">*</span><span class="n">CreatePostconditionsInvocation</span><span class="p">(</span><span class="n">NSInvocation</span> <span class="o">*</span><span class="n">baseInvocation</span><span class="p">,</span> <span class="kt">id</span> <span class="n">target</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">Contracts_CopyInvocationArg</span><span class="p">(</span><span class="n">NSInvocation</span> <span class="o">*</span><span class="n">from</span><span class="p">,</span> <span class="n">NSInvocation</span> <span class="o">*</span><span class="n">to</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">i_src</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">i_dst</span><span class="p">);</span>
+<span class="kt">void</span> <span class="n">Contracts_CopyInvocationArgs</span><span class="p">(</span><span class="n">NSInvocation</span> <span class="o">*</span><span class="n">from</span><span class="p">,</span> <span class="n">NSInvocation</span> <span class="o">*</span><span class="n">to</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">dstStart</span><span class="p">,</span> <span class="n">NSInteger</span> <span class="n">dstOffset</span><span class="p">);</span>
+<span class="kt">void</span> <span class="o">*</span><span class="n">Contracts_GetReturnValueForInvokedInvocation</span><span class="p">(</span><span class="n">NSInvocation</span> <span class="o">*</span><span class="n">invocation</span><span class="p">);</span>
+
+
+
+<span class="k">@protocol</span> <span class="nc">Contracts</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span>
+
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">invariants</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nf">asContractProxyingSubclass</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">ContractsPhase</span><span class="p">)</span> <span class="nf">Contracts__SetCurrentPhase:</span><span class="p">(</span><span class="n">ContractsPhase</span><span class="p">)</span><span class="nv">phase</span><span class="p">;</span>
+
+<span class="k">@end</span>
+</pre></div></td></tr></tbody></table></div></body></html>

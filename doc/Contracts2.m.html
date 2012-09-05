@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><title>Contracts2.m</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><link rel="stylesheet" media="all" href="doc-style.css"><script src="doc-filelist.js"></script><script>var relativeDir = '', thisFile = '/Users/bryn/.docker/templates/tmpl.jade', defaultSidebar = true;</script><script src="doc-script.js"></script></head><body><div id="sidebar_wrapper"><div id="sidebar_switch"><span class="tree">Files</span><span class="headings">Headings</span></div><div id="tree"></div><div id="headings"><div class="heading h1"><a href="#-module-contracts">@module Contracts</a></div><div class="heading h4"><a href="#createpreconditionsinvocation--">CreatePreconditionsInvocation()</a></div><div class="heading h4"><a href="#createpostconditionsinvocation--">CreatePostconditionsInvocation()</a></div><div class="heading h4"><a href="#contracts_copyinvocationarg--">Contracts_CopyInvocationArg()</a></div><div class="heading h4"><a href="#contracts_copyinvocationargs--">Contracts_CopyInvocationArgs()</a></div><div class="heading h4"><a href="#contracts_getreturnvalueforinvokedinvocation--">Contracts_GetReturnValueForInvokedInvocation()</a></div></div></div><div id="sidebar-toggle"></div><div id="container"><div class="background highlight"></div><table cellpadding="0" cellspacing="0"><tbody><tr><td class="docs"><h1>Contracts2.m</h1></td><td class="code highlight"></td></tr><tr><td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1">&#182;</a>
+</div>
+<p>Contracts2.m<br /> ObjC-DesignByContracts-2.0</p>
+
+<p>Created by bryn austin bellomy on 8.30.12.<br /> Copyright (c) 2012 robot bubble bath LLC. All rights reserved.</p></td><td class="code highlight"><div class="highlight"><pre><span class="cp">#import &lt;BrynKit/BrynKit.h&gt;</span>
+<span class="cp">#import &lt;CocoaLumberjack/DDLog.h&gt;</span>
+<span class="cp">#import &lt;MAObjCRuntime/RTMethod.h&gt;</span>
+
+<span class="cp">#import &quot;Contracts2.h&quot;</span></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="-module-contracts">
+  <h1>
+    <a href="#-module-contracts" class="pilcrow">&#182;</a>
+    @module Contracts
+  </h1>
+</div>
+</div><div class="body"></div></div></td><td class="code highlight"><div class="highlight"><pre></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="createpreconditionsinvocation--">
+  <h4>
+    <a href="#createpreconditionsinvocation--" class="pilcrow">&#182;</a>
+    CreatePreconditionsInvocation()
+  </h4>
+</div>
+</div><div class="body"><p>Creates an NSInvocation instance capable of calling the method that implements the precondition checks for a given method.</p></div><div class="details"><div class="dox_tag_title">Params</div><div class="dox_tag_detail"><span class="name">baseInvocation</span><span class="dox_type">[NSInvocation*]</span><span class="description">The invocation that the precondition invocation will be created to target.</span></div><div class="dox_tag_title">Returns</div><div class="dox_tag_detail"><span class="dox_type">[NSInvocation*]</span><span class="description">The preconditions invocation.</span></div></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="n">NSInvocation</span> <span class="o">*</span><span class="nf">CreatePreconditionsInvocation</span><span class="p">(</span><span class="n">NSInvocation</span> <span class="o">*</span><span class="n">baseInvocation</span><span class="p">,</span> <span class="kt">id</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">SEL</span> <span class="n">sel_pre</span> <span class="o">=</span> <span class="n">GetPreconditionsSelectorFromBase</span><span class="p">(</span><span class="n">baseInvocation</span><span class="p">.</span><span class="n">selector</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">([</span><span class="n">target</span> <span class="nl">respondsToSelector:</span> <span class="n">sel_pre</span><span class="p">])</span> <span class="p">{</span>
+    <span class="n">NSMethodSignature</span> <span class="o">*</span><span class="n">preconditionsMethodSig</span> <span class="o">=</span> <span class="p">[</span><span class="n">target</span> <span class="nl">methodSignatureForSelector:</span> <span class="n">sel_pre</span><span class="p">];</span>
+    <span class="n">NSInvocation</span> <span class="o">*</span><span class="n">preconditions</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSInvocation</span> <span class="nl">invocationWithMethodSignature:</span><span class="n">preconditionsMethodSig</span><span class="p">];</span>
+    
+    <span class="n">preconditions</span><span class="p">.</span><span class="n">selector</span> <span class="o">=</span> <span class="n">sel_pre</span><span class="p">;</span>
+    <span class="n">Contracts_SetInvocationSelf</span><span class="p">(</span><span class="n">preconditions</span><span class="p">,</span> <span class="n">target</span><span class="p">);</span>
+    <span class="n">Contracts_SetInvocationArgNil</span><span class="p">(</span><span class="n">preconditions</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">Contracts_CopyInvocationArgs</span><span class="p">(</span><span class="n">baseInvocation</span><span class="p">,</span> <span class="n">preconditions</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">[</span><span class="n">preconditions</span> <span class="n">retainArguments</span><span class="p">];</span>
+    
+    <span class="k">return</span> <span class="n">preconditions</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="createpostconditionsinvocation--">
+  <h4>
+    <a href="#createpostconditionsinvocation--" class="pilcrow">&#182;</a>
+    CreatePostconditionsInvocation()
+  </h4>
+</div>
+</div><div class="body"><p>Creates an NSInvocation instance capable of calling the method that implements the postcondition checks for a given method.</p></div><div class="details"><div class="dox_tag_title">Params</div><div class="dox_tag_detail"><span class="name">baseInvocation</span><span class="dox_type">[NSInvocation*]</span><span class="description">The invocation that the postcondition invocation will be created to target.</span></div><div class="dox_tag_title">Returns</div><div class="dox_tag_detail"><span class="dox_type">[NSInvocation*]</span><span class="description">The postconditions invocation.</span></div></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="n">NSInvocation</span> <span class="o">*</span><span class="nf">CreatePostconditionsInvocation</span><span class="p">(</span><span class="n">NSInvocation</span> <span class="o">*</span><span class="n">baseInvocation</span><span class="p">,</span> <span class="kt">id</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">SEL</span> <span class="n">sel_post</span> <span class="o">=</span> <span class="n">GetPostconditionsSelectorFromBase</span><span class="p">(</span><span class="n">baseInvocation</span><span class="p">.</span><span class="n">selector</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">([</span><span class="n">target</span> <span class="nl">respondsToSelector:</span> <span class="n">sel_post</span><span class="p">])</span> <span class="p">{</span>
+    <span class="n">NSMethodSignature</span> <span class="o">*</span><span class="n">postconditionsMethodSig</span> <span class="o">=</span> <span class="p">[</span><span class="n">target</span> <span class="nl">methodSignatureForSelector:</span> <span class="n">sel_post</span><span class="p">];</span>
+    <span class="n">NSInvocation</span> <span class="o">*</span><span class="n">postconditions</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSInvocation</span> <span class="nl">invocationWithMethodSignature:</span> <span class="n">postconditionsMethodSig</span><span class="p">];</span>
+    
+    <span class="n">postconditions</span><span class="p">.</span><span class="n">selector</span> <span class="o">=</span> <span class="n">sel_post</span><span class="p">;</span>
+    <span class="n">Contracts_SetInvocationSelf</span><span class="p">(</span><span class="n">postconditions</span><span class="p">,</span> <span class="n">target</span><span class="p">);</span>
+    <span class="n">Contracts_SetInvocationArgNil</span><span class="p">(</span><span class="n">postconditions</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">Contracts_CopyInvocationArgs</span><span class="p">(</span><span class="n">baseInvocation</span><span class="p">,</span> <span class="n">postconditions</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">[</span><span class="n">postconditions</span> <span class="n">retainArguments</span><span class="p">];</span>
+    
+    <span class="k">return</span> <span class="n">postconditions</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="contracts_copyinvocationarg--">
+  <h4>
+    <a href="#contracts_copyinvocationarg--" class="pilcrow">&#182;</a>
+    Contracts_CopyInvocationArg()
+  </h4>
+</div>
+</div><div class="body"><p>Helper method that copies a single argument from one NSInvocation object to another.</p></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">Contracts_CopyInvocationArg</span><span class="p">(</span><span class="n">NSInvocation</span> <span class="o">*</span><span class="n">from</span><span class="p">,</span> <span class="n">NSInvocation</span> <span class="o">*</span><span class="n">to</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">i_src</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">i_dst</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">to</span><span class="p">.</span><span class="n">methodSignature</span> <span class="nl">getArgumentTypeAtIndex:</span><span class="n">i_dst</span><span class="p">];</span>
+  <span class="n">NSUInteger</span> <span class="n">bufferSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">NSGetSizeAndAlignment</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">bufferSize</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+  
+  <span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span> <span class="o">=</span> <span class="n">calloc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">bufferSize</span><span class="p">);</span>
+  <span class="p">[</span><span class="n">from</span> <span class="nl">getArgument:</span><span class="o">&amp;</span><span class="n">buffer</span> <span class="nl">atIndex:</span><span class="n">i_src</span><span class="p">];</span>
+  <span class="p">[</span><span class="n">to</span> <span class="nl">setArgument:</span><span class="o">&amp;</span><span class="n">buffer</span> <span class="nl">atIndex:</span><span class="n">i_dst</span><span class="p">];</span>
+<span class="p">}</span></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="contracts_copyinvocationargs--">
+  <h4>
+    <a href="#contracts_copyinvocationargs--" class="pilcrow">&#182;</a>
+    Contracts_CopyInvocationArgs()
+  </h4>
+</div>
+</div><div class="body"><p>Helper method that copies all of the arguments from one NSInvocation object to another, beginning with the argument at index <code>dstStart</code>.</p></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">Contracts_CopyInvocationArgs</span><span class="p">(</span><span class="n">NSInvocation</span> <span class="o">*</span><span class="n">from</span><span class="p">,</span> <span class="n">NSInvocation</span> <span class="o">*</span><span class="n">to</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">dstStart</span><span class="p">,</span> <span class="n">NSInteger</span> <span class="n">dstOffset</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">NSUInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="n">dstStart</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">from</span><span class="p">.</span><span class="n">methodSignature</span><span class="p">.</span><span class="n">numberOfArguments</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Contracts_CopyInvocationArg</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">dstOffset</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></pre></div></td></tr><tr><td class="docs"><div class="dox"><div class="summary">
+<div class="pilwrap" id="contracts_getreturnvalueforinvokedinvocation--">
+  <h4>
+    <a href="#contracts_getreturnvalueforinvokedinvocation--" class="pilcrow">&#182;</a>
+    Contracts_GetReturnValueForInvokedInvocation()
+  </h4>
+</div>
+</div><div class="body"></div><div class="details"><div class="dox_tag_title">Params</div><div class="dox_tag_detail"><span class="name">invocation</span><span class="dox_type">[NSInvocation*]</span><span class="description">The already-invoked NSInvocation object whose return value you seek.</span></div><div class="dox_tag_title">Returns</div><div class="dox_tag_detail"><span class="dox_type">[void*]</span><span class="description">A void pointer to a chunk of memory containing the untyped return value of <code>invocation</code>.</span></div></div></div></td><td class="code highlight"><div class="highlight"><pre><span class="kt">void</span> <span class="o">*</span><span class="nf">Contracts_GetReturnValueForInvokedInvocation</span><span class="p">(</span><span class="n">NSInvocation</span> <span class="o">*</span><span class="n">invocation</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">NSMethodSignature</span> <span class="o">*</span><span class="n">invocationSignature</span> <span class="o">=</span> <span class="p">[</span><span class="n">invocation</span><span class="p">.</span><span class="n">target</span> <span class="nl">methodSignatureForSelector:</span> <span class="n">invocation</span><span class="p">.</span><span class="n">selector</span><span class="p">];</span>
+  <span class="n">NSUInteger</span> <span class="n">returnValueSize</span> <span class="o">=</span>  <span class="n">invocationSignature</span><span class="p">.</span><span class="n">methodReturnLength</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">returnValueSize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="o">*</span><span class="n">returnValue</span> <span class="o">=</span> <span class="n">calloc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">returnValueSize</span><span class="p">);</span>
+    <span class="p">[</span><span class="n">invocation</span> <span class="nl">getReturnValue:</span> <span class="o">&amp;</span><span class="n">returnValue</span><span class="p">];</span>
+    <span class="k">return</span> <span class="n">returnValue</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></td></tr></tbody></table></div></body></html>

@@ -1,3 +1,5 @@
 #ifdef __OBJC__
-#import <Cocoa/Cocoa.h>
+#import <UIKit/UIKit.h>
 #endif
+
+#import <BrynKit/BrynKit.h>
