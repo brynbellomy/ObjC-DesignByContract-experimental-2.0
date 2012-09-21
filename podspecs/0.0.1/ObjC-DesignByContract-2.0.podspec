@@ -13,4 +13,8 @@ Pod::Spec.new do |s|
   s.prefix_header_contents = "#import <ObjC-DesignByContract/ObjC-DesignByContract.h>"
 
   s.xcconfig = { "PUBLIC_HEADERS_FOLDER_PATH" => "include/$(TARGET_NAME)" }
+
+  s.dependency "MAObjCRuntime"
+  s.dependency "BrynKit"
+  s.dependency "CocoaLumberjack"
 end
