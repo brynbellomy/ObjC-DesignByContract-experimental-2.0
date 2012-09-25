@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 robot bubble bath LLC. All rights reserved.  
 //
 
-#import <objc/objc-runtime.h>
+#import <objc/runtime.h>
 #import <MAObjCRuntime/MARTNSObject.h>
 #import <MAObjCRuntime/RTUnregisteredClass.h>
 #import <MAObjCRuntime/RTMethod.h>
