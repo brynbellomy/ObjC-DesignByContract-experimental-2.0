@@ -10,6 +10,8 @@
 #import <MAObjCRuntime/MARTNSObject.h>
 #import <MAObjCRuntime/RTUnregisteredClass.h>
 #import <MAObjCRuntime/RTMethod.h>
+#import <CocoaLumberjack/DDLog.h>
+#import <BrynKit/BrynKit.h>
 
 #import "NSInvocation+EXT.h"
 #import "EXTRuntimeExtensions.h"
